@@ -91,7 +91,3 @@ Every feature across this codebase and its documentation is tagged:
 - **ORIGINAL** — introduced by AutoClean AI+
 
 See `docs/phase_deliverables/Phase1_Research_and_Requirements.md` §9–§10 and `Phase2_System_Design.md` §14 for the full attribution tables.
-
-## License
-
-MIT (academic final-year project).
