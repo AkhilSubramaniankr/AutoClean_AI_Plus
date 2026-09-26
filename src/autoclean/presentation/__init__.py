@@ -1,0 +1,1 @@
+"""Streamlit presentation layer. Depends only on the orchestration Facade (graph_builder.run_workflow / resume_workflow); never imports Infrastructure or Domain directly. Populated starting Phase 9."""

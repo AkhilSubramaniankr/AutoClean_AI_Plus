@@ -1,0 +1,86 @@
+<svg viewBox="0 0 1100 1260" xmlns="http://www.w3.org/2000/svg" font-family="Liberation Sans, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4B5563"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1100" height="1260" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="550" y="42" text-anchor="middle" font-size="23" font-weight="700" fill="#1F2937">AutoClean AI+ : System Architecture</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" font-style="italic" fill="#6B7280">Fig. 1 — Three-agent decision-support pipeline with human-in-the-loop approval</text>
+
+  <!-- Terminator: Dataset -->
+  <ellipse cx="550" cy="118" rx="95" ry="30" fill="#F3F4F6" stroke="#374151" stroke-width="2"/>
+  <text x="550" y="123" text-anchor="middle" font-size="15" font-weight="600" fill="#1F2937">Dataset Upload</text>
+
+  <line x1="550" y1="148" x2="550" y2="186" stroke="#4B5563" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Agent 1 -->
+  <rect x="170" y="188" width="760" height="172" rx="16" fill="#E7F1FB" stroke="#2166A6" stroke-width="2.5"/>
+  <text x="202" y="219" font-size="12" font-weight="700" letter-spacing="1.5" fill="#2166A6">AGENT 1 · PERCEPTION</text>
+  <text x="202" y="247" font-size="21" font-weight="700" fill="#1F2937">Data Analysis Agent</text>
+  <text x="202" y="277" font-size="14.5" fill="#374151">•  Dataset profiling &amp; metadata extraction</text>
+  <text x="202" y="302" font-size="14.5" fill="#374151">•  Missing-value, duplicate &amp; outlier detection</text>
+  <text x="202" y="327" font-size="14.5" fill="#374151">•  Candidate cleaning-strategy generation</text>
+
+  <line x1="550" y1="360" x2="550" y2="398" stroke="#4B5563" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="575" y="384" font-size="12.5" font-style="italic" fill="#6B7280">Candidate Strategies</text>
+
+  <!-- Agent 2 -->
+  <rect x="170" y="400" width="760" height="192" rx="16" fill="#FBF0E1" stroke="#B5651D" stroke-width="2.5"/>
+  <text x="202" y="431" font-size="12" font-weight="700" letter-spacing="1.5" fill="#B5651D">AGENT 2 · EVALUATION</text>
+  <text x="202" y="459" font-size="21" font-weight="700" fill="#1F2937">Strategy Optimization Agent</text>
+  <text x="202" y="489" font-size="14.5" fill="#374151">•  Multi-objective evaluation — quality, cost, fairness, ML impact</text>
+  <text x="202" y="514" font-size="14.5" fill="#374151">•  Weighted decision matrix &amp; strategy ranking</text>
+  <text x="202" y="539" font-size="14.5" fill="#374151">•  Information-preservation analysis</text>
+
+  <line x1="550" y1="592" x2="550" y2="630" stroke="#4B5563" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="575" y="616" font-size="12.5" font-style="italic" fill="#6B7280">Ranked Strategies</text>
+
+  <!-- Agent 3 -->
+  <rect x="170" y="632" width="760" height="212" rx="16" fill="#F1E9F8" stroke="#7B4FA0" stroke-width="2.5"/>
+  <text x="202" y="663" font-size="12" font-weight="700" letter-spacing="1.5" fill="#7B4FA0">AGENT 3 · EXPLANATION &amp; CONTROL</text>
+  <text x="202" y="691" font-size="21" font-weight="700" fill="#1F2937">Explainable Decision Agent</text>
+  <text x="202" y="721" font-size="14.5" fill="#374151">•  LLM-generated explanation of strategy trade-offs</text>
+  <text x="202" y="746" font-size="14.5" fill="#374151">•  Human-in-the-loop approval gate</text>
+  <text x="202" y="771" font-size="14.5" fill="#374151">•  Cleaning execution, validation &amp; report generation</text>
+
+  <line x1="550" y1="844" x2="550" y2="882" stroke="#4B5563" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Decision diamond -->
+  <polygon points="550,882 675,940 550,998 425,940" fill="#FDECEA" stroke="#C0392B" stroke-width="2.5"/>
+  <text x="550" y="934" text-anchor="middle" font-size="15" font-weight="700" fill="#7A251C">Human</text>
+  <text x="550" y="953" text-anchor="middle" font-size="15" font-weight="700" fill="#7A251C">Approved?</text>
+
+  <!-- Reject loop back to Agent 2 -->
+  <path d="M 425,940 C 300,940 300,620 300,555 C 300,530 320,510 340,505" fill="none" stroke="#C0392B" stroke-width="2" stroke-dasharray="7,5" marker-end="url(#arrowRed)"/>
+  <text x="150" y="720" font-size="12.5" font-style="italic" fill="#C0392B" transform="rotate(-90 150 720)" text-anchor="middle">No — Revise Strategy</text>
+
+  <!-- Yes path down -->
+  <line x1="550" y1="998" x2="550" y2="1046" stroke="#4B5563" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="568" y="1026" font-size="13" font-weight="600" fill="#2E8B4F">Yes</text>
+
+  <!-- Storage -->
+  <rect x="290" y="1048" width="520" height="86" rx="14" fill="#E6F6EC" stroke="#2E8B4F" stroke-width="2.5"/>
+  <text x="550" y="1085" text-anchor="middle" font-size="17" font-weight="700" fill="#1F2937">Streamlit Dashboard</text>
+  <text x="550" y="1108" text-anchor="middle" font-size="13.5" fill="#374151">+ SQLite Experiment &amp; Audit Trail</text>
+
+  <!-- Legend -->
+  <g font-size="12.5" fill="#374151">
+    <rect x="170" y="1175" width="16" height="16" rx="3" fill="#E7F1FB" stroke="#2166A6" stroke-width="1.5"/>
+    <text x="194" y="1188">Perception</text>
+    <rect x="330" y="1175" width="16" height="16" rx="3" fill="#FBF0E1" stroke="#B5651D" stroke-width="1.5"/>
+    <text x="354" y="1188">Evaluation</text>
+    <rect x="490" y="1175" width="16" height="16" rx="3" fill="#F1E9F8" stroke="#7B4FA0" stroke-width="1.5"/>
+    <text x="514" y="1188">Explanation &amp; control</text>
+    <rect x="700" y="1175" width="16" height="16" rx="3" fill="#FDECEA" stroke="#C0392B" stroke-width="1.5"/>
+    <text x="724" y="1188">Human decision gate</text>
+    <rect x="900" y="1175" width="16" height="16" rx="3" fill="#E6F6EC" stroke="#2E8B4F" stroke-width="1.5"/>
+    <text x="924" y="1188">Persistence layer</text>
+  </g>
+</svg>

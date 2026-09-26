@@ -1,0 +1,1 @@
+"""Domain layer (Layer 1): pure Python entities and value objects. No framework dependencies (no Pandas, no LangGraph, no Streamlit, no LLM SDK) are permitted in this package. Populated in Phase 4/5."""

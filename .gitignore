@@ -1,0 +1,54 @@
+# Environment / secrets
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Data & runtime artifacts (never commit user data or generated audit DB)
+data/uploads/*
+data/cleaned/*
+data/reports/*
+data/scripts/*
+data/autoclean.db
+!data/uploads/.gitkeep
+!data/cleaned/.gitkeep
+!data/reports/.gitkeep
+!data/scripts/.gitkeep
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+
+# Generated test artifacts
+test_cleaned_output.csv
+data/check_reproduced.csv
+
+# Local project inspection
+project-tree.txt

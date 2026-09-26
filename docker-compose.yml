@@ -1,0 +1,57 @@
+version: "3.9"
+
+# Two-service deployment (revised from the original single-service design in
+# Phase 2's Deployment Diagram): the app container plus a local Ollama
+# server, since the LLM provider was changed from a paid hosted API
+# (Anthropic) to self-hosted Ollama (see docs/phase_deliverables/
+# Phase3_Environment_Setup.md, "Phase 3 Addendum: LLM Provider Revision").
+# Still a single-user, single-machine deployment overall, consistent with
+# the Phase 1 scope decision against multi-tenant deployment.
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: autoclean-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+    restart: unless-stopped
+    # Uncomment to use an NVIDIA GPU if available on the host:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+  autoclean-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: autoclean-ai-plus:0.1.0
+    container_name: autoclean-app
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    environment:
+      AUTOCLEAN_ENVIRONMENT: production
+      # Overrides .env's localhost default: within the Compose network, the
+      # Ollama server is reachable at the service name "ollama", not
+      # localhost (which inside this container would refer to itself).
+      AUTOCLEAN_LLM_BASE_URL: http://ollama:11434
+    depends_on:
+      - ollama
+    volumes:
+      # Named volumes so the SQLite audit trail and uploaded/cleaned datasets
+      # survive container rebuilds (Phase 2, Section 11 Deployment Diagram).
+      - autoclean-data:/app/data
+      - autoclean-logs:/app/logs
+    restart: unless-stopped
+
+volumes:
+  autoclean-data:
+  autoclean-logs:
+  ollama-models:

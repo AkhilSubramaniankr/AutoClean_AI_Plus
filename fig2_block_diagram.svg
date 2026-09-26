@@ -1,0 +1,87 @@
+<svg viewBox="0 0 900 1560" xmlns="http://www.w3.org/2000/svg" font-family="Liberation Sans, Arial, sans-serif">
+  <defs>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4B5563"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="1560" fill="#FFFFFF"/>
+
+  <text x="450" y="42" text-anchor="middle" font-size="23" font-weight="700" fill="#1F2937">AutoClean AI+ : Block Diagram</text>
+  <text x="450" y="64" text-anchor="middle" font-size="13" font-style="italic" fill="#6B7280">Fig. 2 — End-to-end processing pipeline</text>
+
+  <!-- helper: 12 stacked blocks -->
+  <!-- Stage colors: input/output=gray, analysis=blue, optimization=amber, decision=purple, storage=green -->
+
+  <!-- 1 Dataset -->
+  <rect x="300" y="95" width="300" height="58" rx="12" fill="#F3F4F6" stroke="#374151" stroke-width="2"/>
+  <text x="450" y="130" text-anchor="middle" font-size="15" font-weight="600" fill="#1F2937">Dataset</text>
+  <line x1="450" y1="153" x2="450" y2="181" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow2)"/>
+
+  <!-- 2 Upload Module -->
+  <rect x="300" y="183" width="300" height="58" rx="12" fill="#F3F4F6" stroke="#374151" stroke-width="2"/>
+  <text x="450" y="218" text-anchor="middle" font-size="15" font-weight="600" fill="#1F2937">Upload Module</text>
+  <line x1="450" y1="241" x2="450" y2="269" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow2)"/>
+
+  <!-- 3 Data Analysis Agent -->
+  <rect x="270" y="271" width="360" height="60" rx="12" fill="#E7F1FB" stroke="#2166A6" stroke-width="2.3"/>
+  <text x="450" y="307" text-anchor="middle" font-size="15.5" font-weight="700" fill="#1F2937">Data Analysis Agent</text>
+  <line x1="450" y1="331" x2="450" y2="359" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow2)"/>
+
+  <!-- 4 Candidate Cleaning Strategies -->
+  <rect x="270" y="361" width="360" height="58" rx="12" fill="#EEF2F6" stroke="#4B5563" stroke-width="1.8" stroke-dasharray="0"/>
+  <text x="450" y="396" text-anchor="middle" font-size="14.5" fill="#1F2937">Candidate Cleaning Strategies</text>
+  <line x1="450" y1="419" x2="450" y2="447" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow2)"/>
+
+  <!-- 5 Strategy Optimization Agent -->
+  <rect x="250" y="449" width="400" height="60" rx="12" fill="#FBF0E1" stroke="#B5651D" stroke-width="2.3"/>
+  <text x="450" y="485" text-anchor="middle" font-size="15.5" font-weight="700" fill="#1F2937">Strategy Optimization Agent</text>
+  <line x1="450" y1="509" x2="450" y2="537" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow2)"/>
+
+  <!-- 6 Ranked Strategies -->
+  <rect x="270" y="539" width="360" height="58" rx="12" fill="#FBF5EA" stroke="#B5651D" stroke-width="1.8"/>
+  <text x="450" y="574" text-anchor="middle" font-size="14.5" fill="#1F2937">Ranked Strategies</text>
+  <line x1="450" y1="597" x2="450" y2="625" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow2)"/>
+
+  <!-- 7 Explainable Decision Agent -->
+  <rect x="240" y="627" width="420" height="60" rx="12" fill="#F1E9F8" stroke="#7B4FA0" stroke-width="2.3"/>
+  <text x="450" y="663" text-anchor="middle" font-size="15.5" font-weight="700" fill="#1F2937">Explainable Decision Agent</text>
+  <line x1="450" y1="687" x2="450" y2="715" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow2)"/>
+
+  <!-- 8 Human Approval -->
+  <rect x="290" y="717" width="320" height="58" rx="29" fill="#FDECEA" stroke="#C0392B" stroke-width="2.3"/>
+  <text x="450" y="752" text-anchor="middle" font-size="15" font-weight="700" fill="#7A251C">Human Approval</text>
+  <line x1="450" y1="775" x2="450" y2="803" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow2)"/>
+
+  <!-- 9 Cleaning Engine -->
+  <rect x="270" y="805" width="360" height="58" rx="12" fill="#F1E9F8" stroke="#7B4FA0" stroke-width="1.8"/>
+  <text x="450" y="840" text-anchor="middle" font-size="14.5" fill="#1F2937">Cleaning Engine</text>
+  <line x1="450" y1="863" x2="450" y2="891" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow2)"/>
+
+  <!-- 10 Validation -->
+  <rect x="270" y="893" width="360" height="58" rx="12" fill="#F1E9F8" stroke="#7B4FA0" stroke-width="1.8"/>
+  <text x="450" y="928" text-anchor="middle" font-size="14.5" fill="#1F2937">Validation</text>
+  <line x1="450" y1="951" x2="450" y2="979" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow2)"/>
+
+  <!-- 11 Report Generation -->
+  <rect x="270" y="981" width="360" height="58" rx="12" fill="#F1E9F8" stroke="#7B4FA0" stroke-width="1.8"/>
+  <text x="450" y="1016" text-anchor="middle" font-size="14.5" fill="#1F2937">Report Generation</text>
+  <line x1="450" y1="1039" x2="450" y2="1067" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow2)"/>
+
+  <!-- 12 SQLite Database -->
+  <rect x="300" y="1069" width="300" height="60" rx="12" fill="#E6F6EC" stroke="#2E8B4F" stroke-width="2.3"/>
+  <text x="450" y="1105" text-anchor="middle" font-size="15.5" font-weight="700" fill="#1F2937">SQLite Database</text>
+
+  <!-- Reject loop -->
+  <path d="M 610,746 C 780,746 780,478 650,478" fill="none" stroke="#C0392B" stroke-width="2" stroke-dasharray="7,5" marker-end="url(#arrow2)"/>
+  <text x="795" y="615" font-size="12.5" font-style="italic" fill="#C0392B" transform="rotate(90 795 615)" text-anchor="middle">Rejected — return for re-ranking</text>
+
+  <!-- Legend -->
+  <g font-size="12.5" fill="#374151">
+    <rect x="130" y="1210" width="16" height="16" rx="3" fill="#E7F1FB" stroke="#2166A6" stroke-width="1.5"/>
+    <text x="154" y="1223">Perception stage</text>
+    <rect x="320" y="1210" width="16" height="16" rx="3" fill="#FBF0E1" stroke="#B5651D" stroke-width="1.5"/>
+    <text x="344" y="1223">Evaluation stage</text>
+    <rect x="510" y="1210" width="16" height="16" rx="3" fill="#F1E9F8" stroke="#7B4FA0" stroke-width="1.5"/>
+    <text x="534" y="1223">Decision &amp; execution stage</text>
+  </g>
+</svg>

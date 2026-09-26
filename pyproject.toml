@@ -1,0 +1,91 @@
+[project]
+name = "autoclean-ai-plus"
+version = "0.1.0"
+description = "AutoClean AI+: A Multi-Agent Explainable Decision Support System for Multi-Objective Data Cleaning Strategy Optimization"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = { text = "MIT" }
+authors = [{ name = "Akhi" }]
+
+# Runtime dependencies are pinned in requirements.txt / requirements-dev.txt
+# (see docs/phase_deliverables/Phase3_Environment_Setup.md, Section 2, for the
+# pip + requirements.txt vs. Poetry vs. pip-tools decision).
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# ---------------------------------------------------------------------------
+# Formatting: Black
+# ---------------------------------------------------------------------------
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+include = '\.pyi?$'
+
+# ---------------------------------------------------------------------------
+# Linting + import sorting: Ruff (replaces flake8 + isort + pyupgrade)
+# ---------------------------------------------------------------------------
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
+    "N",   # pep8-naming
+]
+ignore = ["E501"]  # line length is handled by Black
+
+[tool.ruff.lint.isort]
+known-first-party = ["autoclean"]
+
+# ---------------------------------------------------------------------------
+# Static typing: mypy (NFR-3: strong typing / type hints across the project)
+# ---------------------------------------------------------------------------
+[tool.mypy]
+python_version = "3.11"
+mypy_path = "src"
+packages = ["autoclean"]
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+
+# Presentation layer (Streamlit) and infra adapters around third-party SDKs
+# are allowed slightly looser typing than Domain/Application, since Streamlit
+# and some LLM SDKs ship incomplete type stubs. Domain and Application remain
+# strict, since those are this project's own hand-written business logic.
+[[tool.mypy.overrides]]
+module = "autoclean.presentation.*"
+disallow_untyped_defs = false
+
+# ---------------------------------------------------------------------------
+# Testing: Pytest (NFR-7)
+# ---------------------------------------------------------------------------
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+addopts = "-ra -q --strict-markers"
+markers = [
+    "unit: fast, isolated unit tests (no I/O)",
+    "integration: exercises multiple layers together (temp SQLite, mocked LLM)",
+]
+
+[tool.coverage.run]
+source = ["src/autoclean"]
+omit = ["src/autoclean/presentation/*"]
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true

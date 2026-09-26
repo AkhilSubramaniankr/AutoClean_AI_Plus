@@ -1,0 +1,110 @@
+<svg viewBox="0 0 900 1720" xmlns="http://www.w3.org/2000/svg" font-family="Liberation Sans, Arial, sans-serif">
+  <defs>
+    <marker id="arrow3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4B5563"/>
+    </marker>
+    <marker id="arrow3red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="1720" fill="#FFFFFF"/>
+
+  <text x="450" y="42" text-anchor="middle" font-size="23" font-weight="700" fill="#1F2937">AutoClean AI+ : Methodology Flowchart</text>
+  <text x="450" y="64" text-anchor="middle" font-size="13" font-style="italic" fill="#6B7280">Fig. 3 — Standard flowchart notation: terminator / process / input-output / decision / data store</text>
+
+  <!-- Start terminator -->
+  <rect x="380" y="90" width="140" height="52" rx="26" fill="#F3F4F6" stroke="#374151" stroke-width="2"/>
+  <text x="450" y="122" text-anchor="middle" font-size="15" font-weight="700" fill="#1F2937">Start</text>
+  <line x1="450" y1="142" x2="450" y2="168" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow3)"/>
+
+  <!-- Parallelogram: Dataset Upload (I/O) -->
+  <polygon points="330,170 630,170 590,228 290,228" fill="#EEF2F6" stroke="#374151" stroke-width="2"/>
+  <text x="460" y="205" text-anchor="middle" font-size="14.5" fill="#1F2937">Dataset Upload</text>
+  <line x1="460" y1="228" x2="460" y2="254" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow3)"/>
+
+  <!-- Process: Dataset Profiling -->
+  <rect x="290" y="256" width="340" height="56" rx="6" fill="#E7F1FB" stroke="#2166A6" stroke-width="2.2"/>
+  <text x="460" y="290" text-anchor="middle" font-size="14.5" fill="#1F2937">Dataset Profiling</text>
+  <line x1="460" y1="312" x2="460" y2="338" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow3)"/>
+
+  <!-- Process: Issue Detection -->
+  <rect x="290" y="340" width="340" height="56" rx="6" fill="#E7F1FB" stroke="#2166A6" stroke-width="2.2"/>
+  <text x="460" y="374" text-anchor="middle" font-size="14.5" fill="#1F2937">Issue Detection</text>
+  <line x1="460" y1="396" x2="460" y2="422" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow3)"/>
+
+  <!-- Process: Generate Candidate Strategies -->
+  <rect x="270" y="424" width="380" height="56" rx="6" fill="#E7F1FB" stroke="#2166A6" stroke-width="2.2"/>
+  <text x="460" y="458" text-anchor="middle" font-size="14.5" fill="#1F2937">Generate Candidate Strategies</text>
+  <line x1="460" y1="480" x2="460" y2="506" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow3)"/>
+
+  <!-- Process: Evaluate Strategies -->
+  <rect x="270" y="508" width="380" height="56" rx="6" fill="#FBF0E1" stroke="#B5651D" stroke-width="2.2"/>
+  <text x="460" y="542" text-anchor="middle" font-size="14.5" fill="#1F2937">Evaluate Strategies (Quality · Cost · Fairness · ML Impact)</text>
+  <line x1="460" y1="564" x2="460" y2="590" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow3)"/>
+
+  <!-- Process: Rank Strategies -->
+  <rect x="290" y="592" width="340" height="56" rx="6" fill="#FBF0E1" stroke="#B5651D" stroke-width="2.2"/>
+  <text x="460" y="626" text-anchor="middle" font-size="14.5" fill="#1F2937">Rank Strategies</text>
+  <line x1="460" y1="648" x2="460" y2="674" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow3)"/>
+
+  <!-- Process: Explain Recommendation -->
+  <rect x="270" y="676" width="380" height="56" rx="6" fill="#F1E9F8" stroke="#7B4FA0" stroke-width="2.2"/>
+  <text x="460" y="710" text-anchor="middle" font-size="14.5" fill="#1F2937">Explain Recommendation (LLM)</text>
+  <line x1="460" y1="732" x2="460" y2="758" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow3)"/>
+
+  <!-- Decision: Human Approval -->
+  <polygon points="460,760 590,830 460,900 330,830" fill="#FDECEA" stroke="#C0392B" stroke-width="2.3"/>
+  <text x="460" y="822" text-anchor="middle" font-size="14.5" font-weight="700" fill="#7A251C">Human</text>
+  <text x="460" y="841" text-anchor="middle" font-size="14.5" font-weight="700" fill="#7A251C">Approved?</text>
+
+  <!-- No branch: loop back to Rank Strategies -->
+  <path d="M 330,830 C 150,830 150,620 288,620" fill="none" stroke="#C0392B" stroke-width="2" stroke-dasharray="7,5" marker-end="url(#arrow3red)"/>
+  <text x="160" y="810" font-size="13" font-weight="600" fill="#C0392B">No</text>
+  <text x="60" y="720" font-size="12.5" font-style="italic" fill="#C0392B" transform="rotate(-90 60 720)" text-anchor="middle">Revise ranking</text>
+
+  <!-- Yes branch down -->
+  <line x1="460" y1="900" x2="460" y2="928" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow3)"/>
+  <text x="478" y="918" font-size="13" font-weight="600" fill="#2E8B4F">Yes</text>
+
+  <!-- Process: Cleaning Execution -->
+  <rect x="290" y="930" width="340" height="56" rx="6" fill="#F1E9F8" stroke="#7B4FA0" stroke-width="2.2"/>
+  <text x="460" y="964" text-anchor="middle" font-size="14.5" fill="#1F2937">Cleaning Execution</text>
+  <line x1="460" y1="986" x2="460" y2="1012" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow3)"/>
+
+  <!-- Process: Validation -->
+  <rect x="290" y="1014" width="340" height="56" rx="6" fill="#F1E9F8" stroke="#7B4FA0" stroke-width="2.2"/>
+  <text x="460" y="1048" text-anchor="middle" font-size="14.5" fill="#1F2937">Validation</text>
+  <line x1="460" y1="1070" x2="460" y2="1096" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow3)"/>
+
+  <!-- Parallelogram: Report Generation (Output) -->
+  <polygon points="330,1098 630,1098 590,1156 290,1156" fill="#EEF2F6" stroke="#374151" stroke-width="2"/>
+  <text x="460" y="1133" text-anchor="middle" font-size="14.5" fill="#1F2937">Report Generation</text>
+  <line x1="460" y1="1156" x2="460" y2="1182" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow3)"/>
+
+  <!-- Database cylinder: SQLite -->
+  <g>
+    <path d="M 360,1184 L 360,1250 A 100,16 0 0 0 560,1250 L 560,1184" fill="#E6F6EC" stroke="#2E8B4F" stroke-width="2.2"/>
+    <ellipse cx="460" cy="1184" rx="100" ry="16" fill="#E6F6EC" stroke="#2E8B4F" stroke-width="2.2"/>
+    <text x="460" y="1228" text-anchor="middle" font-size="14" fill="#1F2937">SQLite Database</text>
+  </g>
+  <line x1="460" y1="1266" x2="460" y2="1292" stroke="#4B5563" stroke-width="2.2" marker-end="url(#arrow3)"/>
+
+  <!-- End terminator -->
+  <rect x="380" y="1294" width="140" height="52" rx="26" fill="#F3F4F6" stroke="#374151" stroke-width="2"/>
+  <text x="450" y="1326" text-anchor="middle" font-size="15" font-weight="700" fill="#1F2937">End</text>
+
+  <!-- Legend -->
+  <g font-size="12.5" fill="#374151">
+    <rect x="110" y="1420" width="18" height="18" fill="#F3F4F6" stroke="#374151" stroke-width="1.5" rx="9"/>
+    <text x="136" y="1434">Start / End</text>
+    <polygon points="255,1420 315,1420 305,1438 245,1438" fill="#EEF2F6" stroke="#374151" stroke-width="1.5"/>
+    <text x="325" y="1434">Input / Output</text>
+    <rect x="430" y="1420" width="18" height="18" fill="#E7F1FB" stroke="#2166A6" stroke-width="1.5"/>
+    <text x="456" y="1434">Process</text>
+    <polygon points="560,1418 600,1435 560,1452 520,1435" fill="#FDECEA" stroke="#C0392B" stroke-width="1.5"/>
+    <text x="612" y="1434">Decision</text>
+    <path d="M 690,1420 L 690,1438 A 20,5 0 0 0 730,1438 L 730,1420" fill="#E6F6EC" stroke="#2E8B4F" stroke-width="1.5"/>
+    <ellipse cx="710" cy="1420" rx="20" ry="5" fill="#E6F6EC" stroke="#2E8B4F" stroke-width="1.5"/>
+    <text x="738" y="1434">Data store</text>
+  </g>
+</svg>

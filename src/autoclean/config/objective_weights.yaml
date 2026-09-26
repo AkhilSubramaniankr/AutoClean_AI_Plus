@@ -1,0 +1,49 @@
+# Weights for the Evaluation Agent's weighted decision matrix.
+#
+# FINALIZED Phase 6 (previously placeholder values since Phase 3). Rationale
+# for each weight, documented per Phase 1's risk-mitigation commitment
+# ("default weights will be documented and justified in Phase 6"):
+#
+#   data_quality (0.30, highest): the primary purpose of the entire system
+#     is improving data quality (Phase 1 Problem Statement) -- it is
+#     weighted highest because a strategy that doesn't improve quality has
+#     failed at this project's core job regardless of how well it scores
+#     elsewhere.
+#   downstream_ml (0.20, second-highest): for a system whose stated
+#     motivation includes making cleaning decisions trustworthy for
+#     real analytical use (Phase 1 Section 10), the practical effect on a
+#     downstream model is the most concrete, decision-relevant signal a
+#     user actually cares about day to day.
+#   information_preservation, statistical_validity, fairness_impact
+#     (0.15 each): weighted equally as three co-equal "trustworthiness"
+#     concerns original to this project (Phase 1, none present in the
+#     source paper) -- no principled reason exists yet to prioritize one
+#     over another without dataset-specific context a generic default
+#     can't assume.
+#   computational_cost (0.05, lowest): per the Phase 1/Phase 2 scope
+#     decision generalizing "cost" from the paper's literal per-API-call
+#     USD billing to a computational/latency proxy for a SINGLE analyst
+#     working INTERACTIVELY on ONE dataset at a time (not the paper's
+#     large-scale, budget-constrained batch setting) -- at this project's
+#     scale, computational cost differences between candidate strategies
+#     are seconds, not the paper's real financial stakes, so it is weighted
+#     lowest by design, not by oversight.
+#
+# These are DEFAULTS. Phase 9's dashboard is expected to let a user override
+# them per-session (Phase 2, FR-5) and see the resulting re-ranking directly,
+# which is the intended mechanism for making this subjectivity visible and
+# adjustable, per Phase 1's risk-mitigation plan, rather than hard-coded.
+
+weights:
+  data_quality: 0.30
+  computational_cost: 0.05
+  information_preservation: 0.15
+  statistical_validity: 0.15
+  fairness_impact: 0.15
+  downstream_ml: 0.20
+
+# alpha: the paper's quality-emphasis parameter (Eq. 7), alpha in (0.5, 1),
+# retained here for the OPTIONAL Eq. 8-derived DP refinement path -- still
+# undecided whether it will be built (see PROJECT_MEMORY.md Open Items).
+# Not used by the primary weighted decision matrix above.
+paper_weighted_gain_alpha: 0.7
